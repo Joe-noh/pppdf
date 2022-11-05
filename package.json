@@ -48,7 +48,6 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-adonis": "^2.1.1",
     "eslint-plugin-prettier": "^4.2.1",
-    "pino-pretty": "^9.1.1",
     "prettier": "^2.7.1",
     "typescript": "~4.6",
     "webpack": "^5.74.0",
@@ -62,6 +61,7 @@
     "@adonisjs/session": "^6.4.0",
     "@adonisjs/shield": "^7.1.0",
     "@adonisjs/view": "^6.2.0",
+    "pino-pretty": "^9.1.1",
     "proxy-addr": "^2.0.7",
     "reflect-metadata": "^0.1.13",
     "source-map-support": "^0.5.21"
