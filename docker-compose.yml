@@ -1,12 +1,15 @@
 version: '3'
 
 services:
-  app:
-    build: .
-    env_file:
-      - .env
-    volumes:
-      - ./:/usr/src/pppdf
+  db:
+    image: mysql:8
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
     ports:
-      - 3333:3333
-      - 8080:8080
+      - 3306:3306
+    volumes:
+      - ./initdb:/docker-entrypoint-initdb.d
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
