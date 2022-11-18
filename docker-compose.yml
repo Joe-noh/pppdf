@@ -1,10 +1,21 @@
 version: '3'
 
 services:
+  app:
+    build:
+      context: .
+      target: build
+    command: npm run dev
+    ports:
+      - ${PORT}:${PORT}
+      - 9229:9229
+    volumes:
+      - ./:/usr/src/pppdf
+      - node-modules:/usr/src/pppdf/node_modules
   db:
     image: mysql:8
     environment:
-      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
     ports:
       - 3306:3306
     volumes:
@@ -23,5 +34,6 @@ services:
       - minio-data:/data
 
 volumes:
+  node-modules:
   mysql-data:
   minio-data:

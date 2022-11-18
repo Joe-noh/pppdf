@@ -7,12 +7,13 @@ import Paper from 'App/Models/Paper'
 
 pdfmake.addFonts({
   Roboto: {
-    normal: 'fonts/NotoSerifJP.otf',
-    bold: 'fonts/NotoSerifJP.otf',
-    italics: 'fonts/NotoSerifJP.otf',
-    bolditalics: 'fonts/NotoSerifJP.otf',
+    normal: '/usr/local/share/fonts/NotoSerifCJKjp-Regular.otf',
+    bold: '/usr/local/share/fonts/NotoSerifCJKjp-Bold.otf',
+    italics: '/usr/local/share/fonts/NotoSerifCJKjp-Regular.otf',
+    bolditalics: '/usr/local/share/fonts/NotoSerifCJKjp-Bold.otf',
   },
 })
+
 export default class PapersController {
   public async show({ params }: HttpContextContract) {
     return await Paper.findOrFail(params.id)

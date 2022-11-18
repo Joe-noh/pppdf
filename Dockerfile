@@ -6,6 +6,11 @@ RUN apt-get update && apt-get install -y dumb-init \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
+RUN wget -q https://noto-website-2.storage.googleapis.com/pkgs/NotoSerifCJKjp-hinted.zip \
+  && unzip NotoSerifCJKjp-hinted.zip -d /usr/local/share/fonts/ \
+  && rm NotoSerifCJKjp-hinted.zip \
+  && fc-cache -f -v
+
 FROM base AS build
 
 COPY package*.json .
