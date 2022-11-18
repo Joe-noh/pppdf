@@ -25,12 +25,13 @@ export default class PapersController {
     const tempfile = fileSync()
 
     await doc.write(tempfile.name)
-    await Drive.putStream('first.pdf', createReadStream(tempfile.name), {
+    await Drive.putStream('documents/first.pdf', createReadStream(tempfile.name), {
       contentType: 'application/pdf',
     })
 
     const paper = new Paper()
     paper.payload = request.input('payload')
+    paper.pdf = 'documents/first.pdf'
 
     await paper.save()
 

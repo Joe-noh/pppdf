@@ -7,7 +7,7 @@ export default class extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
       table.json('payload').notNullable()
-      table.json('pdf')
+      table.string('pdf')
 
       table.timestamp('created_at', { useTz: false })
       table.timestamp('updated_at', { useTz: false })

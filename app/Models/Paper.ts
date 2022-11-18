@@ -8,6 +8,9 @@ export default class Paper extends BaseModel {
   @column()
   public payload: object
 
+  @column()
+  public pdf: string
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 
