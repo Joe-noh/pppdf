@@ -15,7 +15,8 @@
   },
   "preloads": [
     "./start/routes",
-    "./start/kernel"
+    "./start/kernel",
+    "./start/pdfmake"
   ],
   "providers": [
     "./providers/AppProvider",
