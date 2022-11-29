@@ -11,7 +11,7 @@ export default class PapersController {
     return await Paper.findOrFail(params.id)
   }
 
-  public async store({ request }: HttpContextContract) {
+  public async store({ request, response }: HttpContextContract) {
     const docDef = {
       content: ['This is an sample ピーディーエフ printed with pdfMake'],
       defaultStyle: {
@@ -33,6 +33,12 @@ export default class PapersController {
 
     await paper.save()
 
-    return paper
+    response.status(201)
+    response.send({
+      paper: {
+        id: paper.id,
+        url: await Drive.getSignedUrl(paper.pdf, { expiresIn: '20mins' }),
+      },
+    })
   }
 }
